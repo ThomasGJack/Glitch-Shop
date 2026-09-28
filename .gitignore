@@ -1,0 +1,21 @@
+# Firebase
+.firebase/
+firebase-debug.log
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Dépendances éventuelles
+node_modules/
+
+# Sources lourdes non déployées (image originale 20 Mo, etc.)
+raw/
+
+# Sorties de déploiement temporaires
+deploy*.txt
+
+# Outils locaux
+.claude/
+.claude-flow/

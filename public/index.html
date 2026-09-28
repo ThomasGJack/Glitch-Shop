@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glitch — la peluche officielle de SimpleGames</title>
+  <meta name="description" content="Glitch, la peluche pingouin en hoodie orange de la communauté gaming SimpleGames. Édition limitée. Réserve ta place sur la liste d'attente." />
+  <meta name="theme-color" content="#ff7a18" />
+  <link rel="canonical" href="https://simple-games-net.web.app/" />
+
+  <!-- Open Graph / partage réseaux sociaux -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://simple-games-net.web.app/" />
+  <meta property="og:site_name" content="SimpleGames" />
+  <meta property="og:title" content="Glitch — la peluche officielle de SimpleGames" />
+  <meta property="og:description" content="La mascotte des gamers débarque en peluche. Rejoins la liste d'attente." />
+  <meta property="og:image" content="https://simple-games-net.web.app/assets/glitch-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Glitch, la peluche pingouin de SimpleGames" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Glitch — la peluche officielle de SimpleGames" />
+  <meta name="twitter:description" content="La mascotte des gamers débarque en peluche. Rejoins la liste d'attente." />
+  <meta name="twitter:image" content="https://simple-games-net.web.app/assets/glitch-og.png" />
+
+  <link rel="icon" href="assets/favicon.png?v=5" />
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=5" />
+  <link rel="preload" as="image" href="assets/glitch.webp" type="image/webp" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Préchargeur "glitch" -->
+  <div id="preloader" class="preloader" role="status" aria-label="Chargement de Glitch">
+    <div class="preloader-inner">
+      <img src="assets/glitch-emote.png" alt="" class="preloader-peng" width="92" height="92" />
+      <div class="preloader-logo" data-text="GLITCH">GLITCH</div>
+      <div class="preloader-bar"><span></span></div>
+      <p class="preloader-sub">SimpleGames</p>
+    </div>
+  </div>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="brand"><img class="brand-logo" src="assets/glitch-emote.png" alt="Glitch" width="44" height="44" />SimpleGames</a>
+      <div class="nav-links">
+        <a href="#glitch" class="text-link">C'est qui Glitch ?</a>
+        <a href="#histoire" class="text-link">L'histoire</a>
+        <a href="#reserver" class="text-link">La liste d'attente</a>
+        <a href="#" class="btn btn-discord" data-discord target="_blank" rel="noopener">💬 Discord</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="wrap">
+    <div class="hero">
+      <div class="hero-text">
+        <span class="badge"><span class="pulse"></span>Édition limitée · liste d'attente ouverte</span>
+        <h1>Voici <span class="hl">Glitch</span>, le doudou officiel de la commu&nbsp;🧡</h1>
+        <p class="sub">Rescapé d'un jeu qui n'a jamais vu le jour, ce petit pingouin en hoodie orange est devenu la mascotte de SimpleGames. Bientôt en peluche. Réserve ta place avant tout le monde.</p>
+
+        <form class="form js-waitlist" novalidate>
+          <input type="email" class="js-email" placeholder="ton-email@exemple.com" aria-label="Ton adresse email" autocomplete="email" required />
+          <button class="btn js-submit" type="submit">Je réserve ma place</button>
+        </form>
+        <p class="micro js-note" role="status" aria-live="polite">🔒 Zéro spam. Juste un message quand Glitch débarque.</p>
+
+        <!-- Jauge d'objectif communautaire -->
+        <div class="gauge" id="gauge">
+          <div class="gauge-top">
+            <div class="stack" aria-hidden="true"><span>🎮</span><span>👾</span><span>🕹️</span><span class="peng"></span></div>
+            <span class="gauge-count"><span id="count">0</span><span class="gauge-slash">/</span><span id="goal">500</span> inscrits</span>
+          </div>
+          <div class="gauge-track" role="progressbar" aria-label="Progression vers l'objectif" aria-valuemin="0" aria-valuemax="500">
+            <div class="gauge-fill" id="gauge-fill"></div>
+          </div>
+          <p class="gauge-goaltext">🎯 À 500 inscrits, on révèle le design final de Glitch.</p>
+        </div>
+
+        <!-- Hub de partage (apparaît après inscription) -->
+        <div class="share-hub" id="share-hub" hidden>
+          <p class="share-pos">🎉 Tu es le <strong id="share-pos-num">#—</strong> à adopter Glitch&nbsp;!</p>
+          <p class="share-sub">Fais grimper Glitch : plus on est nombreux, plus vite il débarque. Partage ton lien 👇</p>
+          <div class="share-actions">
+            <button type="button" id="share-btn" class="btn share-main">Partager mon lien 🔗</button>
+            <a id="share-discord" class="share-discord" href="#" data-discord target="_blank" rel="noopener">Rejoindre le Discord →</a>
+          </div>
+          <p class="share-copied" id="share-copied" hidden>Lien copié dans le presse-papier ✅</p>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="halo"></div>
+        <span class="sticker sticker-1">✨ 100% câlin</span>
+        <span class="sticker sticker-2">🏆 Mascotte officielle</span>
+        <img src="assets/glitch.webp" width="1100" height="614" alt="Glitch, la peluche pingouin de SimpleGames" loading="eager" decoding="async" />
+      </div>
+    </div>
+  </header>
+
+  <section class="about" id="glitch">
+    <div class="wrap">
+      <span class="eyebrow">L'histoire</span>
+      <h2>C'est qui Glitch ?</h2>
+      <p class="lead">Un pingouin apparu par accident, adopté par toute la communauté, et maintenant prêt à venir vivre sur ton bureau (ou ton lit).</p>
+      <div class="cards">
+        <div class="card">
+          <div class="ico">🎮</div>
+          <h3>Le rescapé d'un jeu</h3>
+          <p>Né d'un projet de jeu jamais sorti, ce pingouin était le seul proto vraiment réussi. On l'a gardé, adopté, adoré.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🏆</div>
+          <h3>Mascotte officielle</h3>
+          <p>Aujourd'hui, c'est LE symbole de SimpleGames. Sur nos serveurs, nos events et bientôt ton étagère.</p>
+        </div>
+        <div class="card">
+          <div class="ico">💛</div>
+          <h3>Doux & câlin</h3>
+          <p>Hoodie orange tout doux, peluche premium ultra moelleuse. Le doudou parfait entre deux parties.</p>
+        </div>
+        <div class="card">
+          <div class="ico">⏳</div>
+          <h3>Édition limitée</h3>
+          <p>Première série en quantité limitée. Les inscrits à la liste sont servis en priorité.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="histoire">
+    <div class="wrap">
+      <div class="story-head">
+        <span class="eyebrow">L'histoire vraie</span>
+        <h2>Comment Glitch est né 🐧</h2>
+        <p class="lead">Spoiler : il n'aurait jamais dû exister.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-node">🎮</div>
+          <div class="tl-card">
+            <span class="tl-step">Étape 1 · L'idée</span>
+            <h3>On voulait notre Club Penguin</h3>
+            <p>Le rêve de départ : un monde en ligne tout doux, à la Club Penguin. Des pingouins à customiser, des mini-jeux, des igloos à décorer, et surtout une vraie communauté.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-node tl-node--peng"></div>
+          <div class="tl-card">
+            <span class="tl-step">Étape 2 · Le rescapé</span>
+            <h3>Le jeu n'a jamais vu le jour…</h3>
+            <p>On avait commencé par dessiner le pingouin de base, pour le décliner ensuite. Le jeu est tombé à l'eau — mais ce petit pingouin, lui, nous a conquis au premier regard. Le seul proto vraiment réussi.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-node">🧡</div>
+          <div class="tl-card">
+            <span class="tl-step">Étape 3 · La mascotte</span>
+            <h3>« Glitch », le bug devenu star</h3>
+            <p>On l'a appelé Glitch — le grain de sable devenu la vedette. Adopté par la commu, il est aujourd'hui partout chez SimpleGames : logo, interfaces, serveurs.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-node">🧸</div>
+          <div class="tl-card">
+            <span class="tl-step">Étape 4 · La peluche</span>
+            <h3>Et si on l'avait en vrai ?</h3>
+            <p>Porte-clés, tapis de souris… trop vu, pas assez « wouaw ». Puis l'évidence : une peluche. Un Glitch tout doux, à câliner pour de vrai. 🧡</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip" id="reserver">
+    <div class="wrap">
+      <div class="cta-card">
+        <h2>Prêt à adopter Glitch ? 🐧</h2>
+        <p>Rejoins la liste d'attente et sois prévenu·e en avant-première dès l'ouverture des réservations.</p>
+        <form class="form js-waitlist" novalidate>
+          <input type="email" class="js-email" placeholder="ton-email@exemple.com" aria-label="Ton adresse email" autocomplete="email" required />
+          <button class="btn js-submit" type="submit">Je réserve ma place</button>
+        </form>
+        <p class="micro js-note cta-note" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-brand"><img class="foot-peng" src="assets/glitch-emote.png" alt="" width="32" height="32" /> SimpleGames</div>
+      <p>La communauté gaming qui a adopté un bug.</p>
+      <div class="foot-links">
+        <a href="#glitch">C'est qui Glitch ?</a>
+        <a href="#reserver">Liste d'attente</a>
+        <a href="#" data-discord target="_blank" rel="noopener">Rejoindre le Discord</a>
+      </div>
+      <small>© <span id="year"></span> SimpleGames · Glitch™ · Fait avec 🧡 par la commu</small>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var pre = document.getElementById('preloader');
+      if (!pre) return;
+      var hidden = false;
+      function done() {
+        if (hidden) return;
+        hidden = true;
+        pre.classList.add('hidden');
+        setTimeout(function () { if (pre && pre.parentNode) pre.parentNode.removeChild(pre); }, 600);
+      }
+      window.addEventListener('load', function () { setTimeout(done, 650); });
+      setTimeout(done, 4000);
+    })();
+  </script>
+</body>
+</html>

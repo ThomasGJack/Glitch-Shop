@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Inscriptions waitlist : création publique uniquement, validée.
+    // Personne ne peut LIRE la liste des emails depuis le client (privacy).
+    match /waitlist/{id} {
+      allow create: if
+        request.resource.data.email is string &&
+        request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$') &&
+        request.resource.data.email.size() < 254;
+      allow read, update, delete: if false;
+    }
+
+    // Compteur public : lisible par tous, incrémentable de +1 à la fois.
+    // (Anti-triche basique. Pour du dur, passer par une Cloud Function.)
+    match /public/stats {
+      allow read: if true;
+      allow write: if
+        request.resource.data.waitlistCount is int &&
+        (resource == null ||
+         request.resource.data.waitlistCount == resource.data.waitlistCount + 1);
+    }
+  }
+}
